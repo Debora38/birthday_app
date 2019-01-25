@@ -23,7 +23,11 @@ class BirthdayApp < Sinatra::Base
     @day = session[:day]
     @month = session[:month]
     @days_away = Birthday_calculator.new(@day, @month).birthday_calc
-    erb(:birthday_calculator)
+    if @days_away == 0
+      erb(:happy_birthday)
+    else
+      erb(:birthday_calculator)
+    end
   end
 
 end

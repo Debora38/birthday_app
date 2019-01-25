@@ -21,7 +21,7 @@ class Birthday_calculator
 
   def birthday_calc
     if days_away == 0
-      "Happy Birthday"
+      0
     elsif days_away < 0
       self.days_away + 365
     else
