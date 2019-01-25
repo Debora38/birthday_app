@@ -11,33 +11,21 @@ class Birthday_calculator
     Date.today.jd
   end
 
-  def month
-    {
-      January: '01',
-      February: '02',
-      March: '03',
-      April: '04',
-      May: '05',
-      June: '06',
-      July: '07',
-      August: '08',
-      September: '09',
-      October: '10',
-      November: '11',
-      December: '12'
-    }
-  end
-
-  def birthday_month
-    self.month[@month.to_sym]
-  end
-
   def birthday
-    Date.strptime("#{@day}-#{self.birthday_month}-2019", "%d-%m-%Y").jd
+    Date.new(Date.today.year, @month.to_i, @day.to_i).jd
   end
 
   def days_away
     self.birthday - self.today
   end
 
+  def birthday_calc
+    if days_away == 0
+      "Happy Birthday"
+    elsif days_away < 0
+      self.days_away + 365
+    else
+      self.days_away
+    end
+  end
 end

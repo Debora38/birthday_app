@@ -22,7 +22,7 @@ class BirthdayApp < Sinatra::Base
     @name = session[:name]
     @day = session[:day]
     @month = session[:month]
-    @days_away = Birthday_calculator.new(@day, @month).days_away
+    @days_away = Birthday_calculator.new(@day, @month).birthday_calc
     erb(:birthday_calculator)
   end
 
